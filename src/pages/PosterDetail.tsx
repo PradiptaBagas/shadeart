@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { posters } from '../data/posters';
 import PosterCarousel from '../components/PosterCarousel';
-import { motion } from 'framer-motion'; // Pastikan import sesuai library kamu (motion/react atau framer-motion)
+import { motion } from 'framer-motion';
 import { ArrowLeft, Instagram } from 'lucide-react';
 import { cn } from '../components/Navbar';
 
@@ -16,34 +16,32 @@ export default function PosterDetail() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      // Desktop: h-screen & overflow-hidden agar tidak scroll
-      // Mobile: min-h-screen agar bisa scroll jika konten panjang
+      // Desktop: h-screen & overflow-hidden (Mencegah scroll)
       className="min-h-screen lg:h-screen bg-white lg:overflow-hidden flex flex-col"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-6 flex-1 flex flex-col min-h-0">
         
-        {/* Back Button */}
+        {/* Back Button - Jarak dikurangi agar tidak memakan tempat (Gambar 1) */}
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-black/60 hover:text-black transition-colors mb-4 lg:mb-8 group w-fit"
+          className="flex items-center gap-2 text-black/60 hover:text-black transition-colors mb-2 lg:mb-4 group w-fit"
         >
-          <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+          <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
           <span className="text-sm font-medium">Back to Gallery</span>
         </button>
 
         {/* Container Utama */}
-        <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-16 items-center min-h-0">
+        <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 lg:gap-16 items-center min-h-0">
           
           {/* SISI KIRI: Gambar */}
           <div className="relative w-full flex justify-center items-center overflow-hidden min-h-0">
             <div 
               className={cn(
                 "w-full transition-all duration-500 flex justify-center",
-                // Mobile: Kita batasi tinggi gambar agar teks di bawahnya kelihatan
-                // Desktop: Kita batasi tinggi agar tidak merusak layout screen
+                // Mobile (Gambar 2): max-h diturunkan agar teks naik
                 poster.orientation === "portrait"
-                  ? "max-w-[70vw] lg:max-w-[420px] max-h-[50vh] lg:max-h-full"
-                  : "max-w-full lg:max-w-[1050px] max-h-[40vh] lg:max-h-full"
+                  ? "max-w-[65vw] lg:max-w-[400px] max-h-[45vh] lg:max-h-full"
+                  : "max-w-full lg:max-w-[1000px] max-h-[35vh] lg:max-h-full"
               )}
             >
               <PosterCarousel images={poster.images} />
@@ -51,30 +49,30 @@ export default function PosterDetail() {
           </div>
 
           {/* SISI KANAN: Detail Info */}
-          <div className="flex flex-col h-full lg:overflow-y-auto custom-scrollbar justify-center py-4 lg:pr-6">
-            <div className="space-y-6">
+          <div className="flex flex-col h-full lg:overflow-y-auto custom-scrollbar lg:justify-center py-2 lg:py-4">
+            <div className="space-y-4 lg:space-y-6">
               <div>
-                <p className="text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] text-black/40 mb-2">
+                <p className="text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] text-black/40 mb-1 lg:mb-2">
                   {poster.category}
                 </p>
-                <h1 className="text-3xl lg:text-5xl font-bold tracking-tighter mb-3 lg:mb-4 leading-tight">
+                <h1 className="text-2xl lg:text-5xl font-bold tracking-tighter mb-2 lg:mb-4 leading-tight">
                   {poster.title}
                 </h1>
-                <p className="text-xl lg:text-2xl font-medium text-black/80">
+                <p className="text-lg lg:text-2xl font-medium text-black/80">
                   {poster.price}
                 </p>
               </div>
 
-              <div className="space-y-2 lg:space-y-3">
-                <h3 className="text-base lg:text-lg font-bold">About this work</h3>
-                <p className="text-sm lg:text-base text-black/60 leading-relaxed">
+              <div className="space-y-1 lg:space-y-3">
+                <h3 className="text-sm lg:text-lg font-bold">About this work</h3>
+                <p className="text-xs lg:text-base text-black/60 leading-relaxed">
                   {poster.description}
                 </p>
               </div>
 
-              <div className="space-y-2 lg:space-y-3 pt-4 border-t border-black/5">
+              <div className="space-y-1 lg:space-y-3 pt-3 lg:pt-4 border-t border-black/5">
                 <h3 className="text-[10px] lg:text-xs font-bold uppercase tracking-widest text-black/40">Production Details</h3>
-                <p className="text-xs lg:text-sm font-medium text-black/60">
+                <p className="text-[11px] lg:text-sm font-medium text-black/60">
                   {poster.productionDetails}
                 </p>
               </div>
@@ -82,25 +80,26 @@ export default function PosterDetail() {
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 pt-2">
                 <a
-                  href={`https://ig.me/m/shdeart?text=Hi%20Shade%2C%20I%20want%20to%20purchase%20the%20poster%20%22${poster.title}%22.`}
+                  href={`https://ig.me/m/shdeart`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 px-6 py-3 lg:py-4 bg-black text-white font-bold rounded-2xl hover:bg-black/90 transition-all active:scale-95 text-sm"
+                  className="flex-1 flex items-center justify-center gap-2 px-6 py-3 lg:py-4 bg-black text-white font-bold rounded-xl lg:rounded-2xl hover:bg-black/90 transition-all active:scale-95 text-xs lg:text-sm"
                 >
                   Purchase Poster
                 </a>
                 <a
-                  href={`https://ig.me/m/shdeart?text=Hi%20Shade%2C%20I%20want%20to%20custom%20order.`}
+                  href={`https://ig.me/m/shdeart`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 px-6 py-3 lg:py-4 border-2 border-black text-black font-bold rounded-2xl hover:bg-black/5 transition-all active:scale-95 text-sm"
+                  className="flex-1 flex items-center justify-center gap-2 px-6 py-3 lg:py-4 border-2 border-black text-black font-bold rounded-xl lg:rounded-2xl hover:bg-black/5 transition-all active:scale-95 text-xs lg:text-sm"
                 >
-                  <Instagram size={18} />
+                  <Instagram size={16} />
                   Custom Order
                 </a>
               </div>
 
-              <p className="text-[9px] lg:text-[10px] text-black/40 leading-relaxed italic pt-2">
+              {/* Footer text diperkecil agar tidak menambah tinggi halaman di mobile */}
+              <p className="text-[8px] lg:text-[10px] text-black/40 leading-relaxed italic pt-2">
                 * All posters are printed on high-quality 250gsm matte paper. 
                 Worldwide shipping available.
               </p>
