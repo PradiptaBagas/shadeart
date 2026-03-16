@@ -51,7 +51,7 @@ export default function PosterDetail() {
 
           {/* SISI KANAN: Detail Info */}
           <div className="flex flex-col h-full min-h-0 w-full overflow-hidden">
-            <div className="flex-1 overflow-y-auto pr-4 custom-scrollbar">
+            <div className="flex-1 overflow-y-auto pr-4">
               <div className="space-y-6 lg:space-y-8 w-full">
                 <div>
                   <p className="text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] text-black/40 mb-1 lg:mb-2">
