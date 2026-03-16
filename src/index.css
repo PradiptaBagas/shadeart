@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply selection:bg-black selection:text-white;
+  }
+}
+
+/* Custom Masonry Column Gap Fix */
+.columns-1, .columns-2, .columns-3, .columns-4 {
+  column-gap: 1.5rem;
+}
+
