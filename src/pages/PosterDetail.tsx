@@ -52,12 +52,12 @@ export default function PosterDetail() {
           {/* SISI KANAN: Detail Info */}
           <div className="flex flex-col h-full min-h-0 w-full overflow-hidden">
             <div className="flex-1 overflow-y-auto pr-4">
-              <div className="space-y-6 lg:space-y-8 w-full">
+              <div className="space-y-4 lg:space-y-6 w-full">
                 <div>
                   <p className="text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] text-black/40 mb-1 lg:mb-2">
                     {poster.category}
                   </p>
-                  <h1 className="text-2xl lg:text-5xl font-bold tracking-tighter mb-2 lg:mb-4 leading-tight break-words">
+                  <h1 className="text-2xl lg:text-5xl font-bold tracking-tighter mb-2 lg:mb-2 leading-tight break-words">
                     {poster.title}
                   </h1>
                   <p className="text-lg lg:text-2xl font-medium text-black/80">
@@ -72,7 +72,7 @@ export default function PosterDetail() {
                   </p>
                 </div>
 
-                <div className="space-y-2 pt-4 border-t border-black/5">
+                <div className="space-y-2 pt-2 border-t border-black/5">
                   <h3 className="text-[10px] lg:text-xs font-bold uppercase tracking-widest text-black/40">Production Details</h3>
                   <p className="text-[11px] lg:text-sm font-medium text-black/60 break-words">
                     {poster.productionDetails}
