@@ -17,7 +17,7 @@ export default function PosterCarousel({ images }: PosterCarouselProps) {
   };
 
   // Class dasar untuk wrapper agar gambar tetap konsisten
-  const containerStyle = "relative w-full overflow-hidden rounded-3xl bg-neutral-100 shadow-sm";
+const containerStyle = "relative w-full overflow-hidden rounded-3xl bg-neutral-100 shadow-lg";
 
   if (images.length === 1) {
     return (
