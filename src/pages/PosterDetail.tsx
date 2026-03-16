@@ -16,12 +16,12 @@ export default function PosterDetail() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      // Desktop: h-screen & overflow-hidden (Mencegah scroll)
-      className="min-h-screen lg:h-screen bg-white lg:overflow-hidden flex flex-col"
+      // Paksa h-screen dan overflow-hidden di desktop untuk kunci scroll
+      className="min-h-screen lg:h-screen lg:max-h-screen bg-white lg:overflow-hidden flex flex-col"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-6 flex-1 flex flex-col min-h-0">
         
-        {/* Back Button - Jarak dikurangi agar tidak memakan tempat (Gambar 1) */}
+        {/* Back Button */}
         <button
           onClick={() => navigate(-1)}
           className="flex items-center gap-2 text-black/60 hover:text-black transition-colors mb-2 lg:mb-4 group w-fit"
@@ -31,17 +31,17 @@ export default function PosterDetail() {
         </button>
 
         {/* Container Utama */}
-        <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 lg:gap-16 items-center min-h-0">
+        <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 lg:gap-16 items-center min-h-0 overflow-hidden">
           
           {/* SISI KIRI: Gambar */}
-          <div className="relative w-full flex justify-center items-center overflow-hidden min-h-0">
+          <div className="relative w-full flex justify-center items-center overflow-hidden min-h-0 h-full">
             <div 
               className={cn(
-                "w-full transition-all duration-500 flex justify-center",
-                // Mobile (Gambar 2): max-h diturunkan agar teks naik
+                "w-full transition-all duration-500 flex justify-center items-center",
+                // Pembatasan tinggi di desktop diperketat agar tidak mendorong scroll
                 poster.orientation === "portrait"
-                  ? "max-w-[65vw] lg:max-w-[400px] max-h-[45vh] lg:max-h-full"
-                  : "max-w-full lg:max-w-[1000px] max-h-[35vh] lg:max-h-full"
+                  ? "max-w-[65vw] lg:max-w-[400px] max-h-[45vh] lg:max-h-[90%]"
+                  : "max-w-full lg:max-w-[1000px] max-h-[35vh] lg:max-h-[80%]"
               )}
             >
               <PosterCarousel images={poster.images} />
@@ -49,7 +49,9 @@ export default function PosterDetail() {
           </div>
 
           {/* SISI KANAN: Detail Info */}
-          <div className="flex flex-col h-full lg:overflow-y-auto custom-scrollbar lg:justify-center py-2 lg:py-4">
+          <div className="flex flex-col h-full lg:overflow-y-auto custom-scrollbar lg:justify-start py-2 lg:py-8">
+            {/* Pakai lg:justify-start dan py-8 agar landscape naik ke atas, 
+                tidak mengambang di tengah yang bikin gap bawah terlihat lebar */}
             <div className="space-y-4 lg:space-y-6">
               <div>
                 <p className="text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] text-black/40 mb-1 lg:mb-2">
@@ -93,12 +95,14 @@ export default function PosterDetail() {
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 px-6 py-3 lg:py-4 border-2 border-black text-black font-bold rounded-xl lg:rounded-2xl hover:bg-black/5 transition-all active:scale-95 text-xs lg:text-sm"
                 >
-                  <Instagram size={16} />
-                  Custom Order
+                  <span className="flex items-center gap-2">
+                    <Instagram size={16} />
+                    Custom Order
+                  </span>
                 </a>
               </div>
 
-              {/* Footer text diperkecil agar tidak menambah tinggi halaman di mobile */}
+              {/* Footer text */}
               <p className="text-[8px] lg:text-[10px] text-black/40 leading-relaxed italic pt-2">
                 * All posters are printed on high-quality 250gsm matte paper. 
                 Worldwide shipping available.
