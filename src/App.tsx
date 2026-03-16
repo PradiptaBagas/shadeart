@@ -31,7 +31,7 @@ export default function App() {
         </Routes>
         
         {/* Footer */}
-        <footer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-black/10">
+        <footer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 border-t border-black/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="text-xl font-bold tracking-tighter">SHADE</div>
             <div className="flex gap-8 text-sm font-medium text-black/40">
