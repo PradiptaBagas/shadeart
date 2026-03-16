@@ -33,10 +33,10 @@ export default function PosterDetail() {
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center min-h-0">
           
          {/* SISI KIRI: Gambar */}
-          <div className="relative w-full h-full flex items-center justify-center overflow-hidden p-4 lg:p-0">
+          <div className="relative w-full flex items-center justify-center overflow-hidden p-4 lg:p-0 mb-6 lg:mb-0">
             <div 
               className={cn(
-                "w-full h-full flex items-center transition-all duration-500",
+                "w-full flex items-center justify-center transition-all duration-500",
                 // Portrait: atur potrait biar ngga terlalu raksasa gambarnya
                 // Landscape: atur landscape biar ada ruang
                 poster.orientation === "portrait" ? "max-w-[420px]" : "max-w-[1050px]"
