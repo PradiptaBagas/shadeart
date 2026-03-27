@@ -30,11 +30,11 @@ try {
     2. Gunakan List (1, 2, 3) untuk setiap produk.
     3. Setiap nomor HARUS punya format seperti ini (perhatikan spasi dan baris baru):
     
-    **Nama Poster**
-    Tulis deskripsi poster di sini minimal 2 kalimat yang estetik.
-    [→ Lihat Detail Poster](https://shadeart.vercel.app/poster/ID)
+    1. **Nama Poster**
+        Tulis deskripsi poster di sini minimal 2 kalimat yang estetik.
+        [→ Lihat Detail Poster](https://shadeart.vercel.app/poster/ID)
 
-    (Berikan 2 baris kosong sebelum lanjut ke produk berikutnya)
+        (Berikan 2 baris kosong sebelum lanjut ke produk berikutnya)
 
     PENTING: Jangan menggabungkan link di akhir kalimat. Link harus punya baris sendiri di paling bawah setiap produk.`;
 

@@ -110,11 +110,11 @@ export default function ChatWidget() {
           </strong>
         ),
 
-        // Styling tombol dengan margin bawah ekstra (mb-8) untuk memisahkan antar produk
+        // Styling tombol dengan margin bawah ekstra (mb-5) untuk memisahkan antar produk
         a: ({ href, children }) => (
           <a 
             href={href} 
-            className="inline-block mt-2 mb-8 bg-black text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest no-underline hover:bg-gray-800 transition-all shadow-md"
+            className="inline-block mt-2 mb-5 bg-black text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest no-underline hover:bg-gray-800 transition-all shadow-md"
           >
             {children}
           </a>
