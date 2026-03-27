@@ -114,24 +114,24 @@ export default function ChatWidget() {
                         
                         // 4. MENGUBAH LINK MENJADI ROUTE INTERNAL (Fix 404)
                         a: ({ href, children }) => {
-  // Ambil path-nya saja
-  const path = href || "";
-  const isInternal = path.startsWith('/') || path.includes('shadeart.vercel.app');
+                        // Ambil path-nya saja
+                        const path = href || "";
+                        const isInternal = path.startsWith('/') || path.includes('shadeart.vercel.app');
 
-  if (isInternal) {
-    const finalPath = path.replace('https://shadeart.vercel.app', '');
-    return (
-      <Link 
-        to={finalPath} 
-        onClick={() => setOpen(false)}
-        className="inline-block mt-2 mb-4 bg-black text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest no-underline hover:bg-gray-800 transition-all shadow-md active:scale-95"
-      >
-        {children || "Lihat Detail Poster"}
-      </Link>
-    );
-  }
-  return <a href={href} target="_blank" className="text-blue-600">{children}</a>;
-}
+                        if (isInternal) {
+                            const finalPath = path.replace('https://shadeart.vercel.app', '');
+                            return (
+                            <Link 
+                                to={finalPath} 
+                                onClick={() => setOpen(false)}
+                                className="inline-block mt-2 mb-4 bg-black text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest no-underline hover:bg-gray-800 transition-all shadow-md active:scale-95"
+                            >
+                                {children || "Lihat Detail Poster"}
+                            </Link>
+                            );
+                        }
+                        return <a href={href} target="_blank" className="text-blue-600">{children}</a>;
+                        }
                       }}
                     >
                       {msg.text}

@@ -34,6 +34,10 @@ try {
         Tulis deskripsi poster minimal 2 kalimat yang estetik dan sesuai vibe ShadeArt.
         
         [→ Lihat Detail Poster](/poster/ID)
+    2. **Nama Poster Kedua**
+        ... dst.
+
+    PENTING: Pastikan nomor berurutan dan jangan ada paragraf pemisah di luar struktur list.
 
     4. BERIKAN JARAK: Berikan 2 baris kosong sebelum lanjut ke produk berikutnya agar tidak menempel.
 
