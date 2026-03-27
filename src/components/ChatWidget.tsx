@@ -100,22 +100,24 @@ export default function ChatWidget() {
   <div className="prose prose-sm max-w-none text-gray-800">
     <ReactMarkdown
       components={{
-        // Mengatur jarak antar paragraf
-        p: ({ children }) => <p className="mb-4 last:mb-0 leading-relaxed">{children}</p>,
-        // Mengatur link agar jadi tombol mandiri
+        // Maksa setiap paragraf punya jarak bawah yang jelas
+        p: ({ children }) => <div className="mb-6 last:mb-0">{children}</div>,
+        
+        // Bikin judul poster jadi gede dan di baris sendiri
+        strong: ({ children }) => (
+          <b className="block text-black text-base mb-1 antialiased tracking-tight">
+            {children}
+          </b>
+        ),
+
+        // Link detail poster jadi tombol di baris baru
         a: ({ href, children }) => (
           <a 
             href={href} 
-            className="inline-block mt-2 mb-4 bg-black text-white px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-wider no-underline hover:bg-gray-800 transition-all shadow-md"
+            className="inline-block mt-2 bg-black text-white px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest no-underline hover:bg-gray-800 transition-all shadow-sm"
           >
             {children}
           </a>
-        ),
-        // Mengatur nama produk (Bold) agar ada jarak atas
-        strong: ({ children }) => (
-          <strong className="block mt-6 first:mt-0 text-black text-base font-bold border-l-2 border-black pl-2">
-            {children}
-          </strong>
         )
       }}
     >
@@ -123,7 +125,7 @@ export default function ChatWidget() {
     </ReactMarkdown>
   </div>
 ) : (
-  <div className="leading-relaxed">{msg.text}</div>
+  <div className="text-sm">{msg.text}</div>
 )}
               </div>
             ))}

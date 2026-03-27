@@ -30,13 +30,13 @@ try {
     2. Gunakan List (1, 2, 3) untuk setiap produk.
     3. Setiap nomor HARUS punya format seperti ini (perhatikan spasi dan baris baru):
     
-    **[NAMA POSTER]**
-    [Deskripsi produk yang menarik di sini...]
-    
-    [→ Lihat Detail Poster](https://shadeart.vercel.app/poster/id)
+    **Nama Poster**
+    Tulis deskripsi poster di sini minimal 2 kalimat yang estetik.
+    [→ Lihat Detail Poster](https://shadeart.vercel.app/poster/ID)
 
-    4. Berikan jarak 2 baris (double newline) sebelum lanjut ke nomor berikutnya.
-    5. JANGAN taruh link di akhir kalimat deskripsi. Harus di baris baru sendiri.`;
+    (Berikan 2 baris kosong sebelum lanjut ke produk berikutnya)
+
+    PENTING: Jangan menggabungkan link di akhir kalimat. Link harus punya baris sendiri di paling bawah setiap produk.`;
 
     //(3.1 Flash Lite) 
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=${apiKey}`;
