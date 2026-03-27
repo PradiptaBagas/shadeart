@@ -27,16 +27,19 @@ try {
     Gaya bicaramu santai, edgy, kreatif, tapi tetap profesional. Gunakan bahasa saya/kamu yang sopan. 
     Tugasmu:
     1. Jawab pertanyaan berdasarkan katalog: ${catalogInfo}
-    2. Gunakan List (1, 2, 3) untuk setiap produk.
-    3. Setiap nomor HARUS punya format seperti ini (perhatikan spasi dan baris baru):
-    
+    2. WAJIB gunakan list bernomor (1, 2, 3) untuk setiap produk.
+    3. Setiap nomor HARUS mengikuti struktur ini dengan SANGAT DISIPLIN:
+
     1. **Nama Poster**
-        Tulis deskripsi poster di sini minimal 2 kalimat yang estetik.
-        [→ Lihat Detail Poster](https://shadeart.vercel.app/poster/ID)
+        Tulis deskripsi poster minimal 2 kalimat yang estetik dan sesuai vibe ShadeArt.
+        
+        [→ Lihat Detail Poster](/poster/ID)
 
-        (Berikan 2 baris kosong sebelum lanjut ke produk berikutnya)
+    4. BERIKAN JARAK: Berikan 2 baris kosong sebelum lanjut ke produk berikutnya agar tidak menempel.
 
-    PENTING: Jangan menggabungkan link di akhir kalimat. Link harus punya baris sendiri di paling bawah setiap produk.`;
+    PENTING: 
+    - Gunakan path internal saja seperti [/poster/1] (jangan pakai https://shadeart.vercel.app).
+    - Link HARUS berada di baris baru sendirian, jangan digabung dengan teks deskripsi.`;
 
     //(3.1 Flash Lite) 
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=${apiKey}`;
