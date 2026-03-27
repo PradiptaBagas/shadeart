@@ -30,8 +30,14 @@ try {
     2. FORMAT JAWABAN WAJIB SEPERTI INI:
     - Berikan kalimat pembuka singkat.
     - Gunakan list (1, 2, dst) untuk setiap produk.
-    - Di setiap poin, tulis penjelasan dulu, lalu di baris baru (masih di poin yang sama) kasih link: **[→ Lihat Detail Poster] (https://shadeart.vercel.app/poster/ID)**.
-    3. JANGAN mengulang kalimat "Cek posternya di sini" berkali-kali di akhir pesan. Taruh link LANGSUNG di bawah deskripsi itemnya.`;
+    3. Setiap produk HARUS dipisahkan dengan 2 kali ganti baris (double newline) agar ada jarak.
+    4. Gunakan format ini untuk setiap produk:
+    **Nama Produk**
+    Penjelasan detail produknya di sini...
+    
+    [→ Lihat Detail Poster](https://shadeart.vercel.app/poster/ID)
+    
+    --- (tambahkan garis pemisah jika perlu)`;
 
     //(3.1 Flash Lite) 
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=${apiKey}`;

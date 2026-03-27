@@ -97,14 +97,15 @@ export default function ChatWidget() {
                 }`}
               >
                 {msg.role === 'ai' ? (
-                  <div className="prose prose-sm max-w-none 
-                    prose-p:leading-relaxed prose-p:my-1
-                    prose-strong:text-black
-                    prose-a:inline-block prose-a:mt-2 prose-a:bg-black prose-a:text-white prose-a:no-underline prose-a:px-4 prose-a:py-2 prose-a:rounded-lg prose-a:text-[11px] prose-a:font-bold hover:prose-a:bg-gray-800 transition-colors">
+                <div className="prose prose-sm max-w-none 
+                    prose-p:mb-4 prose-p:leading-relaxed 
+                    prose-li:mb-8 
+                    prose-strong:text-black prose-strong:block prose-strong:mb-1
+                    prose-a:inline-block prose-a:mt-3 prose-a:bg-black prose-a:text-white prose-a:no-underline prose-a:px-4 prose-a:py-2 prose-a:rounded-lg prose-a:text-[11px] prose-a:font-bold hover:prose-a:bg-gray-800 transition-all shadow-sm">
                     <ReactMarkdown children={msg.text}/>
-                  </div>
+                </div>
                 ) : (
-                  msg.text
+                msg.text
                 )}
               </div>
             ))}
