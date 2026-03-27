@@ -2,12 +2,12 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
-
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import PosterDetail from './pages/PosterDetail';
+import ChatWidget from './components/ChatWidget';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -67,6 +67,7 @@ export default function App() {
             </div>
           </div>
         </footer>
+        <ChatWidget />
       </div>
     </Router>
   );
