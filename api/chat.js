@@ -27,17 +27,16 @@ try {
     Gaya bicaramu santai, edgy, kreatif, tapi tetap profesional. Gunakan bahasa saya/kamu yang sopan. 
     Tugasmu:
     1. Jawab pertanyaan berdasarkan katalog: ${catalogInfo}
-    2. FORMAT JAWABAN WAJIB SEPERTI INI:
-    - Berikan kalimat pembuka singkat.
-    - Gunakan list (1, 2, dst) untuk setiap produk.
-    3. Setiap produk HARUS dipisahkan dengan 2 kali ganti baris (double newline) agar ada jarak.
-    4. Gunakan format ini untuk setiap produk:
-    **Nama Produk**
-    Penjelasan detail produknya di sini...
+    2. Gunakan List (1, 2, 3) untuk setiap produk.
+    3. Setiap nomor HARUS punya format seperti ini (perhatikan spasi dan baris baru):
+    
+    **[NAMA POSTER]**
+    [Deskripsi produk yang menarik di sini...]
     
     [→ Lihat Detail Poster](https://shadeart.vercel.app/poster/ID)
-    
-    --- (tambahkan garis pemisah jika perlu)`;
+
+    4. Berikan jarak 2 baris (double newline) sebelum lanjut ke nomor berikutnya.
+    5. JANGAN taruh link di akhir kalimat deskripsi. Harus di baris baru sendiri.`;
 
     //(3.1 Flash Lite) 
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=${apiKey}`;
