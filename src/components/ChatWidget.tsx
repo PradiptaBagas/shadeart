@@ -95,13 +95,15 @@ export default function ChatWidget() {
               >
                 {/* PERBAIKAN: Menggunakan ReactMarkdown untuk AI agar link bisa diklik */}
                 {msg.role === 'ai' ? (
-                  <div className="prose prose-sm max-w-none prose-a:text-blue-600 prose-a:underline prose-p:my-0">
+                <div className="prose prose-sm max-w-none 
+                    prose-a:text-blue-500 prose-a:font-bold prose-a:no-underline hover:prose-a:underline 
+                    prose-p:leading-relaxed">
                     <ReactMarkdown children={msg.text}/>
-                  </div>
-                ) : (
-                  msg.text
-                )}
-              </div>
+                </div>
+                ) : (
+                msg.text
+                )}
+                </div>
             ))}
           </div>
 
