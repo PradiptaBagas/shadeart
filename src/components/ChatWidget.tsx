@@ -96,16 +96,35 @@ export default function ChatWidget() {
                     : 'bg-white text-gray-800 self-start border border-gray-100 rounded-tl-none'
                 }`}
               >
-                {msg.role === 'ai' ? (
-                <div className="prose prose-sm max-w-none 
-                    prose-p:mb-6 prose-p:leading-relaxed 
-                    prose-strong:text-black prose-strong:text-base prose-strong:block prose-strong:mb-2
-                    prose-a:block prose-a:w-fit prose-a:mt-2 prose-a:mb-6 prose-a:bg-black prose-a:text-white prose-a:no-underline prose-a:px-4 prose-a:py-2 prose-a:rounded-full prose-a:text-[10px] prose-a:uppercase prose-a:tracking-widest hover:prose-a:bg-gray-800 transition-all">
-                    <ReactMarkdown children={msg.text}/>
-                </div>
-                ) : (
-                msg.text
-                )}
+{msg.role === 'ai' ? (
+  <div className="prose prose-sm max-w-none text-gray-800">
+    <ReactMarkdown
+      components={{
+        // Mengatur jarak antar paragraf
+        p: ({ children }) => <p className="mb-4 last:mb-0 leading-relaxed">{children}</p>,
+        // Mengatur link agar jadi tombol mandiri
+        a: ({ href, children }) => (
+          <a 
+            href={href} 
+            className="inline-block mt-2 mb-4 bg-black text-white px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-wider no-underline hover:bg-gray-800 transition-all shadow-md"
+          >
+            {children}
+          </a>
+        ),
+        // Mengatur nama produk (Bold) agar ada jarak atas
+        strong: ({ children }) => (
+          <strong className="block mt-6 first:mt-0 text-black text-base font-bold border-l-2 border-black pl-2">
+            {children}
+          </strong>
+        )
+      }}
+    >
+      {msg.text}
+    </ReactMarkdown>
+  </div>
+) : (
+  <div className="leading-relaxed">{msg.text}</div>
+)}
               </div>
             ))}
 

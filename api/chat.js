@@ -33,7 +33,7 @@ try {
     **[NAMA POSTER]**
     [Deskripsi produk yang menarik di sini...]
     
-    [→ Lihat Detail Poster](https://shadeart.vercel.app/poster/ID)
+    [→ Lihat Detail Poster](https://shadeart.vercel.app/poster/id)
 
     4. Berikan jarak 2 baris (double newline) sebelum lanjut ke nomor berikutnya.
     5. JANGAN taruh link di akhir kalimat deskripsi. Harus di baris baru sendiri.`;
