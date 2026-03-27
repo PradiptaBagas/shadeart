@@ -39,7 +39,14 @@ try {
 
     PENTING: 
     - Gunakan path internal saja seperti [/poster/1] (jangan pakai https://shadeart.vercel.app).
-    - Link HARUS berada di baris baru sendirian, jangan digabung dengan teks deskripsi.`;
+    - Link HARUS berada di baris baru sendirian, jangan digabung dengan teks deskripsi.
+    - PENTING: Link WAJIB ditulis dalam format Markdown murni.
+    CONTOH SALAH: [/poster/1] atau [→ Lihat Detail Poster]
+    CONTOH BENAR: [→ Lihat Detail Poster](/poster/1)
+
+    Jangan pernah lupa tanda kurung bulat () setelah kurung kotak []. 
+    Setiap produk harus punya satu tombol link seperti contoh di atas.`;
+    
 
     //(3.1 Flash Lite) 
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=${apiKey}`;

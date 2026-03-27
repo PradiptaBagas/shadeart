@@ -114,27 +114,24 @@ export default function ChatWidget() {
                         
                         // 4. MENGUBAH LINK MENJADI ROUTE INTERNAL (Fix 404)
                         a: ({ href, children }) => {
-                          const isInternal = href?.startsWith('/') || href?.includes('shadeart.vercel.app');
-                          
-                          if (isInternal) {
-                            const path = href?.replace('https://shadeart.vercel.app', '') || "#";
-                            return (
-                              <Link 
-                                to={path}
-                                onClick={() => setOpen(false)} // Tutup chat saat navigasi
-                                className="inline-block mt-1 mb-2 bg-black text-white px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest no-underline hover:bg-gray-800 transition-all shadow-md"
-                              >
-                                {children}
-                              </Link>
-                            );
-                          }
-                          
-                          return (
-                            <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
-                              {children}
-                            </a>
-                          );
-                        }
+  // Ambil path-nya saja
+  const path = href || "";
+  const isInternal = path.startsWith('/') || path.includes('shadeart.vercel.app');
+
+  if (isInternal) {
+    const finalPath = path.replace('https://shadeart.vercel.app', '');
+    return (
+      <Link 
+        to={finalPath} 
+        onClick={() => setOpen(false)}
+        className="inline-block mt-2 mb-4 bg-black text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest no-underline hover:bg-gray-800 transition-all shadow-md active:scale-95"
+      >
+        {children || "Lihat Detail Poster"}
+      </Link>
+    );
+  }
+  return <a href={href} target="_blank" className="text-blue-600">{children}</a>;
+}
                       }}
                     >
                       {msg.text}
