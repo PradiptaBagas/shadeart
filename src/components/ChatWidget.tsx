@@ -83,7 +83,7 @@ export default function ChatWidget() {
           >
             {messages.length === 0 && (
               <div className="text-center mt-10 px-6">
-                <p className="text-gray-400 text-sm italic">Mau cari poster yang vibe-nya gimana? Tanya Shade aja.</p>
+                <p className="text-gray-400 text-sm italic">Mau cari poster atau tanya tentang shade ? silahkan tanya saja ...</p>
               </div>
             )}
             
@@ -100,21 +100,21 @@ export default function ChatWidget() {
   <div className="prose prose-sm max-w-none text-gray-800">
     <ReactMarkdown
       components={{
-        // Maksa setiap paragraf punya jarak bawah yang jelas
-        p: ({ children }) => <div className="mb-6 last:mb-0">{children}</div>,
+        // Menambah jarak antar paragraf agar deskripsi tidak menempel ke tombol
+        p: ({ children }) => <p className="mb-4 leading-relaxed">{children}</p>,
         
-        // Bikin judul poster jadi gede dan di baris sendiri
+        // Membuat judul poster (bold) punya jarak atas yang tegas dari tombol sebelumnya
         strong: ({ children }) => (
-          <b className="block text-black text-base mb-1 antialiased tracking-tight">
+          <strong className="block mt-10 first:mt-0 text-black text-base font-bold tracking-tight">
             {children}
-          </b>
+          </strong>
         ),
 
-        // Link detail poster jadi tombol di baris baru
+        // Styling tombol dengan margin bawah ekstra (mb-8) untuk memisahkan antar produk
         a: ({ href, children }) => (
           <a 
             href={href} 
-            className="inline-block mt-2 bg-black text-white px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest no-underline hover:bg-gray-800 transition-all shadow-sm"
+            className="inline-block mt-2 mb-8 bg-black text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest no-underline hover:bg-gray-800 transition-all shadow-md"
           >
             {children}
           </a>
