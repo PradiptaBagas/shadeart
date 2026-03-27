@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react"
+import ReactMarkdown from "react-markdown" //
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false)
@@ -21,7 +22,6 @@ export default function ChatWidget() {
     setInput("")
 
     try {
-      // PERBAIKAN: Gunakan endpoint relatif untuk Vercel
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -39,14 +39,6 @@ export default function ChatWidget() {
       setMessages((prev) => [...prev, { role: 'ai', text: "Maaf, ShadeArt AI sedang mengalami gangguan teknis." }])
     }
   }
-
-  // Fungsi untuk membersihkan bintang tanpa merusak UI
-  const renderMessage = (text: string) => {
-    return text
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*(.*?)\*/g, '<em>$1</em>')
-      .replace(/\n/g, '<br />');
-  };
 
   return (
     <>
@@ -94,14 +86,17 @@ export default function ChatWidget() {
             {messages.map((msg, i) => (
               <div 
                 key={i} 
-                className={`max-w-[80%] px-4 py-2 rounded-2xl text-sm ${
+                className={`max-w-[85%] px-4 py-2 rounded-2xl text-sm ${
                   msg.role === 'user' 
                     ? 'bg-black text-white self-end rounded-tr-none' 
                     : 'bg-white text-gray-800 self-start border border-gray-200 rounded-tl-none shadow-sm'
                 }`}
               >
+                {/* PERBAIKAN: Menggunakan ReactMarkdown untuk AI agar link bisa diklik */}
                 {msg.role === 'ai' ? (
-                  <span dangerouslySetInnerHTML={{ __html: renderMessage(msg.text) }} />
+                  <div className="prose prose-sm max-w-none prose-a:text-blue-600 prose-a:underline prose-p:my-0">
+                    <ReactMarkdown>{msg.text}</ReactMarkdown>
+                  </div>
                 ) : (
                   msg.text
                 )}
