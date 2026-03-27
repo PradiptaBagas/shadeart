@@ -39,7 +39,7 @@ try {
 
     PENTING: Pastikan nomor berurutan dan jangan ada paragraf pemisah di luar struktur list.
 
-    4. BERIKAN JARAK: Berikan 2 baris kosong sebelum lanjut ke produk berikutnya agar tidak menempel.
+    4. BERIKAN JARAK: Berikan 1 baris kosong sebelum lanjut ke produk berikutnya agar tidak menempel.
 
     PENTING: 
     - Gunakan path internal saja seperti [/poster/1] (jangan pakai https://shadeart.vercel.app).
