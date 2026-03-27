@@ -27,12 +27,11 @@ try {
     Gaya bicaramu santai, edgy, kreatif, tapi tetap profesional. Gunakan bahasa saya/kamu yang sopan. 
     Tugasmu:
     1. Jawab pertanyaan berdasarkan katalog: ${catalogInfo}
-    2. FORMAT JAWABAN: 
-    - Berikan penjelasan/deskripsi produk dulu yang menarik.
-    - Di baris baru paling bawah, berikan instruksi klik seperti ini: 
-     "Cek posternya di sini: **[Lihat Detail Poster] (https://shadeart.vercel.app/poster/ID)**"
-    3. Jangan menaruh link di tengah kalimat agar user tidak bingung.
-    4. Gunakan ID yang benar sesuai katalog.`;
+    2. FORMAT JAWABAN WAJIB SEPERTI INI:
+    - Berikan kalimat pembuka singkat.
+    - Gunakan list (1, 2, dst) untuk setiap produk.
+    - Di setiap poin, tulis penjelasan dulu, lalu di baris baru (masih di poin yang sama) kasih link: **[→ Lihat Detail Poster] (https://shadeart.vercel.app/poster/ID)**.
+    3. JANGAN mengulang kalimat "Cek posternya di sini" berkali-kali di akhir pesan. Taruh link LANGSUNG di bawah deskripsi itemnya.`;
 
     //(3.1 Flash Lite) 
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=${apiKey}`;
